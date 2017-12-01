@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+/* Animation */
+
+@keyframes text-ani {
+  /* 시작 : from or 0% */
+  0% {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0);
+    transform: translate(0, 0);
+  }
+  /* 종료 : to or 100% */
+  100% {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 1);
+    transform: translate(450px, 230px);
+  }
+}
+@keyframes flower-ani {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.visual {
+  background-image: url("images/bg_flower.png");
+  width: 940px;
+  height: 382px;
+  margin: 0 auto;
+  position: relative;
+}
+.visual::before, .visual::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* animation-name: flower-ani;
+  animation-duration: 1700ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+  animation: flower-ani 1700ms infinite alternate;
+}
+.visual::before {
+  /* background-image: url("images/ani_flower_01.png"), url("images/ani_flower_02.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: -10px 105px, 675px 28px; */
+  background: url("images/ani_flower_01.png") no-repeat -10px 105px, url("images/ani_flower_02.png") no-repeat 675px 28px;
+}
+.visual::after {
+  background: url("images/ani_flower_03.png") no-repeat 325px 140px, url("images/ani_flower_04.png") no-repeat 825px 125px;
+  animation-delay: 2s;
+}
+.visual-text {
+  width: 500px;
+  color: rgba(0, 0, 0, 0);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* animation-name: text-ani;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+  animation-play-state: paused; */
+  animation: text-ani 500ms forwards ease-in-out;
+}
+
+/* Transition */
+
+.web {
+  width: 940px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.web li {
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  text-align: center;
+  border: 5px solid black;
+  background: pink;
+  /* transition: border-radius 1s, background 1s 1s; */
+  transition: all 0.2s;
+}
+.web li:hover, .web li:focus {
+  border-radius: 50%;
+  background: yellow;
+  transform: scale(1.2) rotate(360deg);
+}

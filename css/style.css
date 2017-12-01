@@ -1,0 +1,640 @@
+@charset "utf-8";
+@import url("./normalize.css");
+@import url("./reset.css");
+@import url("./fonts.css");
+
+/* Reset CSS */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 숨김 콘텐츠 */
+
+legend, .readable-hidden {
+  position: absolute;
+  font-size: 0;
+  line-height: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* 기본 스타일 */
+
+html {
+  font-size: 10px;
+}
+body {
+  font-family: "Noto Sans Regular", sans-serif;
+  color: #181818;
+  background-color: #fff;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #f00;
+}
+
+/* 레이아웃 공통 */
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 반응형 콘텐츠 */
+
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 아이콘 폰트(fontello) */
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.icon-plus:before {
+  content: '\e800';
+  color: hsla(90, 50%, 30%, 1);
+}
+.icon-calendar:before {
+  content: '\e801';
+}
+.icon-star:before {
+  content: '\e802';
+}
+
+/* 모바일 & 데스크탑 */
+
+
+/* 콘텐츠 제목 공통 */
+
+.content-heading {
+  background: url("images/sprite_main.png") no-repeat;
+  min-height: 60px;
+  padding-left: 65px;
+  font-family: "Noto Sans Bold";
+}
+.content-heading span {
+  display: block;
+}
+.recommend-book-heading {
+  background-position: 0 0;
+}
+.recommend-book-heading span {
+  color: #abd375;
+}
+.news-heading {
+  background-position: 0 -230px;
+}
+.news-heading span {
+  color: #e8ca58;
+}
+.board-heading {
+  background-position: 0 -115px;
+}
+.board-heading span {
+  color: #c7b39a;
+}
+.favorite-site-heading {
+  background-position: 0 -345px;
+}
+.favorite-site-heading span {
+  color: #eea60a;
+}
+.twitter-heading {
+  background-position: 0 -460px;
+}
+.twitter-heading span {
+  color: #6aaee6;
+}
+
+/* 추천 서적 */
+
+.recommend-book-detail {
+  text-align: center;
+}
+.recommend-book-cover {
+  margin: 15px auto;
+  width: 70%;
+  text-align: center;
+}
+.recommend-book-author, .recommend-book-author-name {
+  display: inline;
+  text-align: center;
+}
+.recommend-book-grade {
+  font-size: 2rem;
+  color: #abd375;
+}
+.recommend-book-summary {
+  text-align: left;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+/* 새소식 */
+
+.news-container {
+  margin: 15px 0;
+  text-align: center;
+}
+.news-summary {
+  line-height: 1.5;
+  margin: 15px 0;
+}
+.news-date {
+  display: block;
+  text-align: right;
+}
+
+/* 게시판 */
+
+.board {
+  position: relative;
+}
+.board-list {
+  margin-top: 15px;
+}
+.board-list li {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.board-list a {
+  width: calc(100% - 80px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.board-list time {
+  width: 80px;
+}
+.board-more {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  padding: 8px;
+}
+
+/* 인기 사이트 */
+
+.favorite-site-list {
+  overflow: hidden;
+  margin-left: 15px;
+}
+.favorite-site-list li {
+  counter-increment: number;
+  margin-top: 15px;
+}
+.favorite-site-list li::before {
+  content: counter(number, decimal);
+  background: #f19333;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0 6px;
+  margin-right: 5px;
+}
+
+/* 트위터 */
+
+.twitter-user {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+.twitter-profile {
+  float: right;
+  width: 20%;
+  text-align: right;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+.twitter-profile img {
+  border-radius: 50%;
+  border: 1px solid #999;
+  padding: 5px;
+}
+.twitter-date {
+  display: block;
+  clear: both;
+  text-align: right;
+}
+
+/* 푸터 */
+
+.footer-bg {
+  background: #988574;
+  color: #fff;
+}
+.footer {
+  padding: 30px 0;
+}
+
+/* 모바일 */
+
+@media screen and (max-width:999px) {
+  body {
+    font-size: 1.4rem;
+  }
+  /* 모바일 레이아웃 공통 */
+  .header, .main-menu, .slogan, .footer {
+    width: 100%;
+    padding: 0 20px;
+  }
+  /* 모바일 헤더 */
+  .header {
+    background: #38302e;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  /* 모바일 멤버 링크 */
+  .member {
+    background: #988574;
+    margin: 0 -20px;
+    order: -1;
+    text-align: right;
+    padding: 10px;
+  }
+  .member li {
+    display: inline-block;
+  }
+  .member a {
+    padding: 8px 10px;
+  }
+  .member a:hover, .member a:focus {
+    color: #523325;
+  }
+  /* 모바일 로고 */
+  .logo {
+    padding: 10px 0;
+  }
+  /* 모바일 검색 폼 */
+  .search-form {
+    padding: 10px 0 20px;
+  }
+  .search {
+    width: calc(100% - 40px);
+    margin-left: 6px;
+    height: 30px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 2px 15px;
+  }
+  .btn-search {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    /* transparent or none */
+    background: transparent;
+  }
+  .btn-search::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url("images/btn_search.png") no-repeat 0 0/100%;
+  }
+  /* 모바일 내비게이션 */
+  /* 모바일 메인 메뉴 제어를 위한 버튼 */
+  .menubar-container {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+  }
+  .btn-menubar {
+    width: 100%;
+    height: 100%;
+    text-indent: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 0;
+    background: transparent;
+  }
+  .menubar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .menubar-top {
+    top: 0;
+  }
+  .menubar-middle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .menubar-bottom {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+  .menubar-act .menubar-top {
+    top: 50%;
+    transform: rotate(45deg);
+    margin-top: -3px;
+  }
+  .menubar-act .menubar-middle {
+    transform: translateX(-100%);
+    /* transform: translate(-100%, -50%); */
+  }
+  .menubar-act .menubar-bottom {
+    top: 50%;
+    transform: rotate(-45deg);
+    margin-top: -3px;
+  }
+  /* 모바일 메인 메뉴 */
+  .menu-act {
+    transform: translateX(0) !important;
+  }
+  .main-menu {
+    background: rgba(0, 0, 0, 0.85);
+    width: 70%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    color: #fff;
+    padding-top: 20px;
+    transform: translateX(-100%);
+    transition: all 0.2s;
+  }
+  .main-menu>li {
+    cursor: pointer;
+    margin: 15px 0;
+  }
+  .main-menu span {
+    font-family: "Noto Sans Bold";
+    font-size: 1.5rem;
+  }
+  .sub-menu {
+    display: none;
+    margin: 10px 0 10px 20px;
+  }
+  .sub-menu-act {
+    display: block !important;
+  }
+  /* 모바일 메인 콘텐츠 */
+  .main-content {
+    padding: 15px 20px 0;
+  }
+  /* 모바일 메인 콘텐츠 섹션 공통 */
+  .recommend-book, .news, .board, .favorite-site, .twitter {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+  /* 모바일 메인 콘텐츠 제목 글자 크기 */
+  .content-heading {
+    font-size: 1.6rem;
+  }
+  /* 모바일 슬로건 */
+  .slogan {
+    margin: 15px 0;
+  }
+  .slogan-heading {
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+  }
+  .slogan-content q {
+    font-weight: bold;
+  }
+  /* 모바일 푸터 */
+  .footer {
+    padding: 20px;
+  }
+  address span {
+    display: block;
+  }
+  .copyright {
+    margin-top: 15px;
+  }
+}
+
+/* 데스크 탑 */
+
+@media screen and (min-width:1000px) {
+  body {
+    font-size: 1.6rem;
+  }
+  .header, .main-menu, .main-content, .slogan, .footer {
+    width: 1000px;
+    margin: 0 auto;
+  }
+  /*=============================================
+  =            헤더            =
+  =============================================*/
+  .header {
+    position: relative;
+    padding-bottom: 15px;
+  }
+  /*----------  로고  ----------*/
+  .logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+  /*----------  멤버 링크  ----------*/
+  .member {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px 0;
+  }
+  .member a {
+    padding: 8px 10px;
+    margin-left: 5px;
+    display: block;
+  }
+  /*----------  검색 폼  ----------*/
+  .search-form {
+    text-align: right;
+    margin-top: 15px;
+  }
+  .search, .btn-search {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 2px 15px;
+    height: 30px;
+    vertical-align: middle;
+  }
+  .search {
+    width: 400px;
+  }
+  .btn-search {
+    color: #fff;
+    background-color: #988574;
+  }
+  /*=====  End of 헤더  ======*/
+  /*=============================================
+  =            내비게이션            =
+  =============================================*/
+  .menubar-container {
+    display: none;
+  }
+  .navigation {
+    background-color: #988574;
+    padding: 15px 0;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+  }
+  /*----------  메인 메뉴  ----------*/
+  .main-menu {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+  }
+  .main-menu span {
+    font-family: "Noto Sans Bold";
+    font-size: 1.8rem;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+  }
+  .sub-menu {
+    margin: 15px 0 0 15px;
+  }
+  .sub-menu li {
+    margin: 2px 0;
+  }
+  .sub-menu a {
+    display: block;
+    padding: 5px 0;
+  }
+  .sub-menu a:hover, .sub-menu a:focus {
+    color: #523325;
+  }
+  /*=====  End of 내비게이션  ======*/
+  /*=============================================
+  =            메인 콘텐츠            =
+  =============================================*/
+  .main-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  /* 메인 콘텐츠 섹션 공통 */
+  .recommend-book, .news, .board, .favorite-site, .twitter {
+    padding: 20px;
+  }
+  /* 메인 콘텐츠 제목 글자 크기 */
+  .content-heading {
+    font-size: 1.8rem;
+  }
+  /*----------  추천 서적  ----------*/
+  .recommend-book {
+    width: 350px;
+  }
+  /*----------  새소식  ----------*/
+  .news {
+    width: 650px;
+  }
+  .news-summary {
+    margin-bottom: 0;
+  }
+  /*----------  게시판  ----------*/
+  .board {
+    width: 350px;
+  }
+  .board-more {
+    top: 10px;
+    right: 20px;
+  }
+  /*----------  인기 사이트  ----------*/
+  .favorite-site {
+    width: 250px;
+    order: 1;
+  }
+  /*----------  트위터  ----------*/
+  .twitter {
+    width: 400px;
+  }
+  /*=====  End of 메인 콘텐츠  ======*/
+  /*=============================================
+  =            슬로건            =
+  =============================================*/
+  .slogan {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  .slogan-heading {
+    width: 110px;
+    height: 83px;
+    padding: 20px;
+    position: relative;
+    bottom: -25px;
+  }
+  .slogan-heading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/coffee.png") no-repeat 0 0/100%;
+  }
+  .slogan-content {
+    width: calc(100% - 180px);
+  }
+  .slogan-content q {
+    font-weight: bold;
+  }
+  /*=====  End of 슬로건  ======*/
+  /*=============================================
+  =            푸터            =
+  =============================================*/
+  .footer {
+    padding-left: 160px;
+  }
+  address span {
+    margin-right: 20px;
+  }
+  /*=====  End of 푸터  ======*/
+}

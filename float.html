@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Float의 활용</title>
+  <style>
+    .box1 {
+      border: 1px solid black;
+      background: yellow;
+      width: 800px;
+    }
+    
+    .box1 img {
+      width: 100px;
+      height: auto;
+      float: right;
+    }
+    
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+      /* or display:block; */
+    }
+    
+    .box2 {
+      /* border: 1px solid black; */
+      background: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">기준 단락</div>
+  <div class="box1 clearfix">
+    <p>여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역
+      입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다.</p>
+    <img src="images/book_rwd.jpg" alt="반응형 웹디자인">
+  </div>
+  <div class="box2">
+    <p>여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역
+      입니다. 여기는 본문 단락 영역 입니다. 여기는 본문 단락 영역 입니다.</p>
+  </div>
+</body>
+
+</html>
